@@ -4,6 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "start": "node server.js",
+    "build": "echo \"No build process configured. Static assets are served directly.\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
