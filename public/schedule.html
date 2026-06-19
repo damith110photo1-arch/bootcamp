@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Interview | Tech Navigators</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-glow">
+    <div class="orb" style="top: 10%; right: 20%; background: #06b6d4;"></div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <header class="main-header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🚀</span>
+      Tech Navigators
+    </a>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="bootcamp.html">Bootcamp</a>
+      <a href="programs.html">Programs</a>
+      <a href="interviews.html">Mock Interviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="schedule.html" class="nav-cta">Schedule Interview</a>
+    </nav>
+  </header>
+
+  <div class="page-hero" style="padding-bottom: 20px;">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;/&nbsp; Schedule
+    </div>
+    <h1>Schedule your <span class="gradient-text">Interview</span></h1>
+    <p>Select a time for your live mock interview practice.</p>
+  </div>
+
+  <section style="padding-top: 20px;">
+    <div class="section-container" style="max-width: 700px;">
+      
+      <div class="schedule-card reveal">
+        <h3>📅 Booking Details</h3>
+        <p class="card-subtitle">An email with the secure Jitsi link will be sent to you. No account required to join.</p>
+
+        <form id="schedule-form" autocomplete="off">
+          <div class="form-group">
+            <label for="interviewee-name">Full Name *</label>
+            <input type="text" id="interviewee-name" placeholder="e.g. Kasun Perera" required />
+          </div>
+
+          <div class="form-group">
+            <label for="interviewee-email">Email Address *</label>
+            <input type="email" id="interviewee-email" placeholder="e.g. kasun@email.com" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="interview-date">Date *</label>
+              <input type="date" id="interview-date" required />
+            </div>
+            <div class="form-group">
+              <label for="interview-time">Time *</label>
+              <input type="time" id="interview-time" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="interview-type">Interview Type *</label>
+            <select id="interview-type" required>
+              <option value="" disabled selected>Select interview type…</option>
+              <option value="Behavioral Interview">Behavioral Interview</option>
+              <option value="Technical Interview">Technical Interview</option>
+              <option value="HR Screening">HR Screening</option>
+              <option value="Panel Interview">Panel Interview</option>
+              <option value="Coding Challenge">Coding Challenge</option>
+              <option value="Portfolio Review">Portfolio Review</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="interview-notes">Notes (Optional)</label>
+            <textarea id="interview-notes" placeholder="Any specific topics you'd like to cover, or questions for the interviewer…" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn-schedule">
+            <span class="spinner"></span>
+            <span class="btn-text">🚀 Confirm Schedule</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Email Confirmation Modal -->
+  <div class="confirm-modal" id="confirm-modal">
+    <div class="confirm-card">
+      <div class="confirm-icon">🎉</div>
+      <h3>Interview Scheduled!</h3>
+      <p>Your mock interview has been successfully booked.</p>
+      
+      <div class="confirm-details" id="confirm-details">
+        <!-- Injected via JS -->
+      </div>
+      
+      <p style="font-size: 13px; color: #94a3b8; margin-bottom: 0;">Click the button below to send the invitation link to your email, or view it in your dashboard.</p>
+      
+      <div class="confirm-actions">
+        <a href="#" id="btn-send-email" style="background: linear-gradient(135deg, #7c3aed, #06b6d4); color: white; border: none;">
+          📧 Send Email Invite
+        </a>
+        <button id="confirm-close" style="background: rgba(255, 255, 255, 0.05); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.1);">
+          Go to Dashboard
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <p>© 2026 Tech Navigators. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

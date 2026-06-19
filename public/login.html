@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Tech Navigators</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-glow">
+    <div class="orb" style="top: 50%; left: 50%; transform: translate(-50%, -50%); background: #06b6d4;"></div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <header class="main-header">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">🚀</span>
+      Tech Navigators
+    </a>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="bootcamp.html">Bootcamp</a>
+      <a href="programs.html">Programs</a>
+      <a href="login.html" class="nav-cta" style="background: rgba(255,255,255,0.1) !important;">Log In</a>
+      <a href="register.html" class="nav-cta">Register</a>
+    </nav>
+  </header>
+
+  <section style="min-height: 100vh; display: flex; align-items: center; padding-top: 80px;">
+    <div class="section-container" style="max-width: 500px; width: 100%;">
+      
+      <div class="contact-form-card reveal">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h3 style="margin-bottom: 8px;">Welcome Back</h3>
+          <p style="color: #94a3b8; font-size: 14px;">Log in to access your interview dashboard.</p>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" placeholder="john@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn-send">Log In 🔐</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 13px; color: #94a3b8;">
+          Don't have an account? <a href="register.html" style="color: #06b6d4; font-weight: 600;">Register here</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
