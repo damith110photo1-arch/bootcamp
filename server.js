@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.set('trust proxy', 1); // Trust Render's reverse proxy for secure cookies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -17,7 +18,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'super-secret-key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+    cookie: { 
+        secure: process.env.NODE_ENV === 'production', // true if hosted on Render with NODE_ENV=production
+        maxAge: 24 * 60 * 60 * 1000 
+    } // 24 hours
 }));
 
 // Database Setup
