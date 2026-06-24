@@ -25,29 +25,27 @@ let pool;
 
 async function initDB() {
     try {
-        // First connect without database to ensure the database exists
-        const initialClient = new Client({
-            host: process.env.DB_HOST || 'localhost',
-            user: process.env.DB_USER || 'postgres',
-            password: process.env.DB_PASSWORD || ''
-        });
-        await initialClient.connect();
-        
+        const dbHost = process.env.DB_HOST || 'localhost';
         const dbName = process.env.DB_NAME || 'technavigators';
-        const res = await initialClient.query(`SELECT datname FROM pg_catalog.pg_database WHERE datname = $1`, [dbName]);
-        if (res.rowCount === 0) {
-            await initialClient.query(`CREATE DATABASE "${dbName}"`);
-        }
-        await initialClient.end();
+        
+        // Use SSL for remote connections (like Render)
+        const isLocal = dbHost === 'localhost' || dbHost === '127.0.0.1';
+        const sslConfig = isLocal ? false : { rejectUnauthorized: false };
 
-        // Now create the pool with the database
+        // For cloud databases, we usually can't run CREATE DATABASE.
+        // We assume the database already exists and connect directly to it.
         pool = new Pool({
-            host: process.env.DB_HOST || 'localhost',
+            host: dbHost,
             user: process.env.DB_USER || 'postgres',
             password: process.env.DB_PASSWORD || '',
             database: dbName,
-            max: 10
+            port: process.env.DB_PORT || 5432,
+            max: 10,
+            ssl: sslConfig
         });
+
+        // Test the connection and initialize tables
+        await pool.query('SELECT NOW()'); // just to verify connection
 
         // Initialize tables
         await pool.query(`
@@ -79,7 +77,7 @@ async function initDB() {
         `);
         console.log('Database initialized successfully.');
     } catch (err) {
-        console.error('Database connection failed:', err);
+        console.error('Database connection failed:', err.message || err);
         console.log('WARNING: Server starting without a database connection. Some features will not work.');
     }
 }
