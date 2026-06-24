@@ -474,7 +474,7 @@
 
     if (typeof JitsiMeetExternalAPI === 'undefined') {
       var script = document.createElement('script');
-      script.src = 'https://meet.jit.si/external_api.js';
+      script.src = 'https://meet.ffmuc.net/external_api.js';
       script.onload = function () {
         startJitsiMeeting(interview);
       };
@@ -498,7 +498,7 @@
     if(jitsiContainer) jitsiContainer.innerHTML = '';
 
     try {
-      jitsiApi = new JitsiMeetExternalAPI('meet.jit.si', {
+      jitsiApi = new JitsiMeetExternalAPI('meet.ffmuc.net', {
         roomName: interview.room_name,
         parentNode: jitsiContainer,
         width: '100%',

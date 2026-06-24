@@ -188,7 +188,7 @@ app.post('/api/interviews', requireAuth, async (req, res) => {
         const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '');
         const ts = Date.now().toString(36);
         const roomName = `TechNav_${type.replace(/\s+/g, '')}_${slug}_${ts}`;
-        const jitsiLink = `https://meet.jit.si/${roomName}`;
+        const jitsiLink = `https://meet.ffmuc.net/${roomName}`;
         const id = 'int_' + Date.now();
 
         await pool.query(
